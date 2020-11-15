@@ -56,16 +56,13 @@ const Header = (props) => {
         }
 
         return(
-                <div className = 'SelectBlock'>
-                    <img src = {Pin} style = {pinStyle} alt = 'Pin' onClick = {() => PinClickHandler(el)} key = {index}></img>
-                    <select key = {el} style = {classProp} onChange = {(event) => selectChangeHandler(event,el,index)} >
+                <div className = 'SelectBlock' key  = {el}>
+                    <img src = {Pin} style = {pinStyle} alt = 'Pin' onClick = {() => PinClickHandler(el)}></img>
+                    <select style = {classProp} value = {el} onChange = {(event) => selectChangeHandler(event,el,index)} >
                         {props.HeaderElements.map(ele => {
-                            if (ele===el){
-                                return(<option value = {ele} selected key = {ele}  >{ele}  </option>);
-                            } else {
-                                return(<option value = {ele} key = {ele}  >{ele}</option>);
-                            } 
-                        } )}
+                                return(<option value = {ele}  key = {ele} >{ele}</option>);
+                            }  
+                         )}
                     </select>
                 </div>
         )
